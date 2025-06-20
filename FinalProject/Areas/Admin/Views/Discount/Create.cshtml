@@ -1,0 +1,13 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Discount.DiscountCreateVM
+
+<form class="form-inline" method="post" asp-action="Create">
+    <div class="form-group">
+        <label for="percentage">Percentage</label>
+        <input type="text" class="form-control" id="percentage" asp-for="Percentage" style="d-block;">
+        <span asp-validation-for="Percentage" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="Index" class="btn btn-light">Cancel</a>
+
+</form>

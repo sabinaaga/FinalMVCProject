@@ -1,0 +1,38 @@
+﻿@model List<FinalProject.Areas.Admin.ViewModels.Setting.SettingVM>
+
+<div class="container-fluid mt-3">
+    <h1 class="mt-30" style="color:red">Settings</h1>
+    <div class="table-responsive">
+        <a asp-action="Create" type="button" class="btn btn-success">Create</a>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Setting Information</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var setting in Model)
+                {
+                    <tr>
+                        <td>
+
+                            <ul>
+                                @foreach (var kvp in setting.Settings)
+                                {
+                                    <li>@kvp.Key: @kvp.Value</li>
+                                }
+                            </ul>
+                        </td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@setting.Id" type="button" class="btn btn-primary">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@setting.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,52 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.BasketDetailVM
+<div class="container mt-5">
+
+    <div class="alert alert-warning cart-empty-alert @(Model.Products.Count<1 ? "": "d-none")" role="alert">
+            A simple warning alert—check it out!
+        </div>
+
+    <div class="cart-area @(Model.Products.Count<1 ? "d-none": " ")">
+            <hi class="text-center">Products</hi>
+            <div class="cart-table mt-4">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Count</th>
+                          
+                            <th scope="col"></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        @foreach (KeyValuePair<FinalProject.Areas.Admin.ViewModels.Book.BookDetailVM, int> item in Model.Products)
+                        {
+                            <tr>
+                            <td>
+                                <img src="~/assets/images/@(item.Key.BookImages?.FirstOrDefault(m => m.IsMain)?.Name ?? "default.png")" style="width:200px; height:100px" />
+                            </td>
+                            <td>@item.Key.Name</td>
+                                <td>@item.Key.Price</td>
+                                <td>@item.Value</td>
+                             
+                                <td>
+                                <button class="btn btn-danger delete-basket-item" data-id="@item.Key.Id">Delete</button>
+                            </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <div class="total">
+                    <h1>Total:<span>@Model.Total</span>AZN</h1>
+                </div>
+
+            </div>
+        </div>  
+  
+</div>
+
+
+=

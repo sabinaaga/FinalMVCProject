@@ -1,0 +1,95 @@
+﻿<div class="container mt-4">
+    <div class="row">
+        <div class="col-lg-3 mb-4">
+            <aside class="filter-panel border p-3">
+                <h2>Фильтр</h2>
+
+                <div class="filter-group">
+                    <label>Жанр:</label><br>
+                    <label><input type="radio" name="genre" value="all" checked> Все</label><br>
+                    <label><input type="radio" name="genre" value="fantasy"> Фантастика</label><br>
+                    <label><input type="radio" name="genre" value="detective"> Детектив</label><br>
+                    <label><input type="radio" name="genre" value="novel"> Роман</label>
+                </div>
+
+                <div class="filter-group mt-3">
+                    <label>Автор:</label><br>
+                    <label><input type="radio" name="author" value="all" checked> Все</label><br>
+                    <label><input type="radio" name="author" value="author1"> Автор 1</label><br>
+                    <label><input type="radio" name="author" value="author2"> Автор 2</label>
+                </div>
+
+                <div class="filter-group mt-3">
+                    <label>Язык:</label><br>
+                    <label><input type="radio" name="language" value="all" checked> Все</label><br>
+                    <label><input type="radio" name="language" value="ru"> Русский</label><br>
+                    <label><input type="radio" name="language" value="en"> Английский</label>
+                </div>
+
+                <div class="filter-group mt-3">
+                    <label>Цена:</label>
+                    <input type="range" min="1" max="37" value="20" step="1"
+                           oninput="this.nextElementSibling.value = this.value">
+                    <output>20</output>
+                </div>
+            </aside>
+        </div>
+
+        <div class="col-lg-9">
+            <div class="row">
+
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <a href="#" class="text-decoration-none text-dark">
+                        <div class="card h-100 position-relative">
+
+                            <div class="heart-icon position-absolute top-0 end-0 p-2">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                            <div class="image-wrapper">
+                                <img class="card-img-top"
+                                     src="../assets/images/large_2025-05-08-10-44-071746686647.webp"
+                                     alt="product image">
+                                <div class="discount-badge position-absolute top-0 start-0 bg-danger text-white px-2 py-1">
+                                    -20%
+                                </div>
+                            </div>
+
+                            <div class="card-body">
+                                <div class="price-section mb-2">
+                                    <div class="price fw-bold">120₽</div>
+                                    <div class="old-price text-muted text-decoration-line-through">150₽</div>
+                                </div>
+
+                                <div class="product-name mb-2">fcgvhbjnjkl;iulyftdrhezsxdcfvbjhknmlkjop</div>
+
+                                <div class="stars mb-3 text-warning">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+
+                                <button class="btn btn-primary w-100">
+                                    <i class="fa-solid fa-cart-shopping"></i> Добавить в корзину
+                                </button>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+
+            </div>
+
+
+            <div class="container mt-5">
+                <nav>
+                    <ul class="pagination justify-content-center" id="pagination"></ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../assets/js/filter.js"></script>

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<FinalProject.Areas.Admin.ViewModels.Blog.BlogVM>
+<div class="card-wrapper">
+    @foreach (var item in Model)
+    {
+        <a class="card-blog" asp-controller="Blog" asp-action="Detail" asp-route-id="@item.Id">
+            <div class="image-wrapper">
+                <img class="card-image" src="~/assets/images/@item.Imeg" alt="product image">
+                <div class="date-badge">@item.Date</div>
+            </div>
+            <div class="card-content">
+                <div class="product-name">@item.Title</div>
+                <div class="product-description">@item.Description</div>
+            </div>
+        </a>
+
+    }
+
+</div>

@@ -1,0 +1,59 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Book.BookDetailVM
+
+<div class="product-detail-container">
+    <div class="image-wrapper">
+        <div class="main-image-container">
+            <img src="~/assets/images/@Model.BookImages.FirstOrDefault(n => n.IsMain).Name"
+                 alt="Main Image" class="main-image" id="mainBookImage">
+            <div class="discount-badge">-20%</div>
+        </div>
+
+        <div class="thumbnail-container">
+            @foreach (var image in Model.BookImages.Where(n => !n.IsMain))
+            {
+                <img src="~/assets/images/@image.Name"
+                     alt="Detail Image" class="thumbnail-image"
+                     onclick="document.getElementById('mainBookImage').src = this.src" />
+            }
+        </div>
+    </div>
+
+    <div class="product-info">
+        <div class="product-name">Kitabın Adı: Dərin Düşüncələr</div>
+        <div class="author">Müəllif: Aleksandr Sergeyeviç</div>
+        <div class="availability">Stokda var</div>
+
+        <div class="price-section">
+            <span class="price">120₽</span>
+            <span class="old-price">150₽</span>
+            <div class="discount">Скидка: 30₽ (20%)</div>
+        </div>
+
+        <div class="stars">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+        </div>
+
+        <div class="description">
+            <p>Bu kitab müasir rus ədəbiyyatının seçilən nümunələrindən biridir. Əsərdə insan psixologiyası, cəmiyyətlə münasibət və mənəvi dəyərlər ustalıqla təsvir olunmuşdur.</p>
+        </div>
+
+        <button class="button add-basket" data-id="@Model.Id">
+            <i class="fa-solid fa-cart-shopping"></i>
+            Add to basket
+        </button>
+
+        <div class="characteristics">
+            <h5>Xüsusiyyətlər:</h5>
+            <ul>
+                <li>Səhifə sayı: 320</li>
+                <li>Janr: Psixoloji dram</li>
+                <li>Dil: Rus</li>
+                <li>Nəşr ili: 2023</li>
+            </ul>
+        </div>
+    </div>
+</div>

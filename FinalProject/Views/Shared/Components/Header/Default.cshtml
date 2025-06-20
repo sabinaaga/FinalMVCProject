@@ -1,0 +1,125 @@
+﻿@model HeaderVM
+
+
+
+
+<header class="navbar">
+    <div class="light">
+        <div class="container">
+            <div class="info">
+                <i class="fa-solid fa-phone"></i>
+                <span>
+                    (+99451) 312 24 40
+                </span>
+                <span>
+                    (+99412) 431 40 67
+                </span>
+                <span>(+99477) 597 14 65</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <!-- Logo -->
+        <a asp-controller="Home" asp-action="Index">
+            <div class="navbar-logo">
+                <img src="https://static.insales-cdn.com/r/RMWaNXYgts8/rs:fill-down:100:100:1/q:100/plain/files/1/2899/38603603/original/4__1__fbd459516ad35b584f3ef3dc5c22024a.png@png"
+                     alt="Логотип" width="80">
+            </div>
+        </a>
+
+        <!-- Katalog -->
+        <div class="navbar-catalog">
+            <div class="catalog-toggle">
+                <i class="fa-solid fa-bars hamburger-icon"></i>
+                <i class="fa-solid fa-xmark close-icon"></i>
+            </div>
+            <span>Katalog</span>
+            <div class="dropdown-menu">
+                <a href="#">Katalog</a>
+                <a href="#">Katalog</a>
+                <a href="#">Katalog</a>
+                <a href="#">Katalog</a>
+                <a href="#">Katalog</a>
+            </div>
+        </div>
+
+        <!-- Search -->
+        @* <div class="navbar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search...">
+        </div>
+        *@
+        <form asp-controller="Home" asp-action="Search" method="get">
+        <div class="navbar-search">
+        <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" name="query" placeholder="Поиск книг..." />
+            <button type="submit">Найти</button>
+        </div>
+        </form> 
+
+
+
+        <!-- Ikons -->
+        <div class="navbar-icons">
+            <a href="#">
+                <div class="icon-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <span>Like</span>
+                    <div class="popup-list">
+                        <p>Like:</p>
+                        <ul>
+                            <li>Like 1</li>
+                            <li>Like 2</li>
+                            <li>Like 3</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#">
+                <div class="icon-item">
+                    <div class="icon-with-badge">
+                         <a asp-controller="Cart" asp-action="Index"> <i class="fa-solid fa-cart-shopping"></i></a>
+                        <span class="badge  basket-count-show">@Model.BasketProductCount</span>
+                    </div>
+                     <span>Basket</span></a>
+                    <div class="popup-list">
+                        <p>Basket:</p>
+                        <ul>
+                            <li>Basket A</li>
+                            <li>Basket B</li>
+                        </ul>
+                    </div>
+                </div>
+            </a>
+
+
+
+                <a href="">
+                    <div class="icon-wrapper">
+                        <i class="fa-solid fa-right-to-bracket"></i>
+                        <span>Sign in</span>
+                        <div class="auth-popup">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <li class=""><a class="px-1" href="">@Model.UserFullName</a></li>
+                                <form method="post" asp-controller="Account" asp-action="LogOut">
+                                    <button type="submit" class="btn btn-primary">LogOut</button>
+                                </form>
+                            }
+                            else
+                            {
+                                <li><a asp-controller="Account" asp-action="LogIn">Login</a></li>
+                                <li><a asp-controller="Account" asp-action="RegisterUser">Register</a></li>
+
+                            }
+                        </div>
+                    </div>
+                </a>
+            </a>
+        </div>
+    </div>
+
+</header>

@@ -1,0 +1,17 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Setting.CreateSettingVM
+
+<div class="container-fluid mt-3">
+    <h1 class="mt-30" style="color:red">Create Setting</h1>
+
+    <form asp-action="Create" method="post">
+        <div class="form-group">
+            <label for="Key">Key</label>
+            <input type="text" class="form-control" id="Key" name="Key" value="@Model.Key" required />
+        </div>
+        <div class="form-group">
+            <label for="Value">Value</label>
+            <input type="text" class="form-control" id="Value" name="Value" value="@Model.Value" required />
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+    </form>
+</div>

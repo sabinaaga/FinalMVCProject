@@ -1,0 +1,13 @@
+.filter-group {
+    margin-bottom: 15px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.filter-group input[type="radio"] {
+    margin-right: 5px;
+}

@@ -1,0 +1,12 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Blog.BlogDetailVM
+
+
+<div class="container mt-5">
+	<h2 style="color:red">NewsBlog</h2>
+	<p style="color:goldenrod; font-weight:bold">Product Description:@Model.Description</p>
+	<p style="color:goldenrod; font-weight:bold">Product Price:@Model.Tile</p>
+
+	<img src="~/assets/images/@Model.Image" style="width:200px; height:150px" />
+</div>
+
+<a asp-action="Index" class="btn btn-light">Back</a>

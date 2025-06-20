@@ -1,0 +1,38 @@
+﻿@model IEnumerable<FinalProject.Areas.Admin.ViewModels.Discount.DiscountVM>
+<div class="container-fluid mt-3">
+    <h1 class="mt-30 " style="color:red">Discount</h1>
+    <div class="table-responsive">
+        <a asp-action="Create" type="button" class="btn btn-success">Create</a>
+        <table class="table table-hover">
+            <thead class="">
+            <th>
+                Percentage
+            </th>
+            <th>
+                Options
+            </th>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @item.Percentage
+                        </td>
+
+
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-primary">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+

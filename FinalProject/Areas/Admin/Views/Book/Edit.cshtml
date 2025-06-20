@@ -1,0 +1,95 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Book.BookCreateVM
+
+@{
+    ViewData["Title"] = "Редактировать книгу";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Name">Название</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description">Описание</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price">Цена</label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Edition">Издание</label>
+        <input asp-for="Edition" class="form-control" />
+        <span asp-validation-for="Edition" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PageCount">Количество страниц</label>
+        <input asp-for="PageCount" class="form-control" />
+        <span asp-validation-for="PageCount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Stock">В наличии</label>
+        <input asp-for="Stock" type="checkbox" />
+        <span asp-validation-for="Stock" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JanrId">Жанр</label>
+        <select asp-for="JanrId" class="form-control" asp-items="Model.Janrs"></select>
+        <span asp-validation-for="JanrId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LanguageId">Язык</label>
+        <select asp-for="LanguageId" class="form-control" asp-items="Model.Languages"></select>
+        <span asp-validation-for="LanguageId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Авторы</label>
+        <select asp-for="SelectedAutorIds" class="form-control" asp-items="Model.Autors" multiple="multiple"></select>
+        <span asp-validation-for="SelectedAutorIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Скидки</label>
+        <select asp-for="SelectedDiscountIds" class="form-control" asp-items="Model.Discounts" multiple="multiple"></select>
+        <span asp-validation-for="SelectedDiscountIds" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Новые изображения (если нужно заменить)</label>
+        <input asp-for="Images" type="file" multiple class="form-control" />
+        <span asp-validation-for="Images" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Существующие изображения</label>
+        <ul>
+            @foreach (var image in Model.BookImages)
+            {
+                <li>
+                    <img src="@Url.Content("~/assets/images/" + image.Name)" width="100" />
+                    <div>
+                        <label>
+                            <input type="radio" name="SelectedMainImageName" value="@image.Name" @(image.IsMain ? "checked" : "") />
+                            Основное
+                        </label>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Сохранить</button>
+</form>

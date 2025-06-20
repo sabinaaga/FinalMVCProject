@@ -1,0 +1,80 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Book.BookCreateVM
+
+@{
+    ViewData["Title"] = "Create Book";
+}
+
+<h2>Create Book</h2>
+
+<form asp-action="Create" enctype="multipart/form-data" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group form-check">
+        <input asp-for="Stock" class="form-check-input" />
+        <label asp-for="Stock" class="form-check-label"></label>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Description" class="control-label"></label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="PageCount" class="control-label"></label>
+        <input asp-for="PageCount" class="form-control" />
+        <span asp-validation-for="PageCount" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Edition" class="control-label"></label>
+        <input asp-for="Edition" class="form-control" />
+        <span asp-validation-for="Edition" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Price" class="control-label"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="JanrId" class="control-label"></label>
+        <select asp-for="JanrId" asp-items="Model.Janrs" class="form-control">
+            <option value="">-- Select Genre --</option>
+        </select>
+        <span asp-validation-for="JanrId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="LanguageId" class="control-label"></label>
+        <select asp-for="LanguageId" asp-items="Model.Languages" class="form-control">
+            <option value="">-- Select Language --</option>
+        </select>
+        <span asp-validation-for="LanguageId" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Authors</label>
+        <select asp-for="SelectedAutorIds" asp-items="Model.Autors" multiple class="form-control" size="5"></select>
+        <span asp-validation-for="SelectedAutorIds" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label>Discounts</label>
+        <select asp-for="SelectedDiscountIds" asp-items="Model.Discounts" multiple class="form-control" size="5"></select>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Images">Upload Images</label>
+        <input asp-for="Images" type="file" multiple class="form-control-file" style ="whith:20px; hight:20px"/>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>
+

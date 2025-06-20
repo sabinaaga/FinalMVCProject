@@ -1,0 +1,12 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.Language.LanguageEditVM
+<form class="form-inline" method="post" asp-action="Create">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" asp-for="Name" style="d-block;">
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-action="Index" class="btn btn-light">Cancel</a>
+
+</form>

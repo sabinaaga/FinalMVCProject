@@ -1,0 +1,25 @@
+﻿@model List<FinalProject.ViewModels.BookVM>
+
+<h2>Результаты поиска</h2>
+
+@if (!Model.Any())
+{
+    <p>Ничего не найдено.</p>
+}
+else
+{
+    <ul>
+        @foreach (var book in Model)
+        {
+            <li>
+                <h4>@book.Name</h4>
+                <p>@book.Description</p>
+                <p>Цена: @book.Price</p>
+                @if (book.BookImages.Any())
+                {
+                    <img src="~/assets/images/@book.BookImages.First().Name" alt="@book.Name" width="100" />
+                }
+            </li>
+        }
+    </ul>
+}

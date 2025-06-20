@@ -1,0 +1,66 @@
+﻿@model IEnumerable<BookVM>
+
+  <h1 class="mt-30 " style="color:red">Book</h1>
+<a asp-action="Create" type="button" class="btn btn-success">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Janr</th>
+          
+            <th>Discount</th>
+            <th>Image</th>
+            <th>
+                Options
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Discount</td>
+                <td>@product.Description</td>
+                <td>@product.JanrName</td>
+               
+                <td>
+                    <ul>
+                        @foreach (var discount in product.BookDiscounts)
+                        {
+                            <li>
+                                @if (discount.Percentage >0)
+                                {
+                                    product.Discount -= product.Price * discount.Percentage / 100;
+                                }
+                                @product.Price</li>
+                        }
+                    </ul>
+
+                </td>
+                <td>
+                    <ul>
+                        @foreach (var image in product.BookImages)
+                        {
+                            <li>
+                                <img src="~/assets/images/@image.Name" style="width: 150px; height: auto;" />
+                            </li>
+
+                        }
+                    </ul>
+                </td>
+                <td>
+                    <a asp-action="Detail" asp-route-id="@product.BookId" type="button" class="btn btn-info">Detail</a>
+                    <a asp-action="Edit" asp-route-id="@product.BookId" type="button" class="btn btn-primary">Edit</a>
+                    <form asp-action="Delete" asp-route-id="@product.BookId" method="post" class="d-inline">
+                        <button type="submit" class="btn btn-danger">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,22 @@
+﻿@model FinalProject.Areas.Admin.ViewModels.SlayderAutor.SliderAutorCreateVM
+
+
+<div class="container mt-5">
+
+    <form class="form-inline" method="post" asp-action="Create" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label for="UploadImages">Image</label>
+            <input type="file" id="UploadImages" asp-for="UploadImages" class="form-control" multiple />
+            <span asp-validation-for="UploadImages" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-5">Submit</button>
+        <a asp-action="Index" class="btn btn-light mt-5">Cancel</a>
+
+    </form>
+
+</div>
+
+
+

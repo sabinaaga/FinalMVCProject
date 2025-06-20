@@ -1,0 +1,36 @@
+﻿@model IEnumerable<FinalProject.Areas.Admin.ViewModels.Picture.PictureVM>
+<div class="container-fluid mt-3">
+    <h1 class="mt-30 " style="color:red">Picture</h1>
+    <div class="table-responsive">
+        <a asp-action="Create" type="button" class="btn btn-success">Create</a>
+        <table class="table table-hover">
+            <thead class="">
+            <th>
+                Image
+            </th>
+
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            <img src="~/assets/images/@item.Image" style="width:200px; height:150ox" />
+                        </td>
+                        <td>
+                            <a asp-action="Detail" asp-route-id="@item.Id" type="button" class="btn btn-info">Detail</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" type="button" class="btn btn-primary">Edit</a>
+                            <form asp-action="Delete" asp-route-id="@item.Id" method="post" class="d-inline">
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
