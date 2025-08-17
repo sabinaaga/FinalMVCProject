@@ -24,7 +24,6 @@ The application demonstrates full-stack development: MVC architecture, database 
 ---
 
 ## Screenshots
-*(Add screenshots of your interface here, for example)*
 
 ![Home Page](screenshots/home.png)
 ![Management Page](screenshots/manage.png)
